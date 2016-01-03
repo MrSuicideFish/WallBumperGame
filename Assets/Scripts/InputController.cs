@@ -5,7 +5,7 @@ public class InputController : MonoBehaviour
 {
     public Rigidbody m_Player;
     public float m_MovementSpeed = 1;
-
+    public bool m_MobileMode = false;
     Vector3 TiltVector;
 
     void Start( )
@@ -29,9 +29,9 @@ public class InputController : MonoBehaviour
 #endif
 
 #if !UNITY_EDITOR && UNITY_ANDROID
-        TiltVector = Input.acceleration;
+        if(m_MobileMode)
+            TiltVector = Input.acceleration;
 #endif
-
         //Move player
         m_Player.AddTorque( TiltVector * m_MovementSpeed );
 
