@@ -21,6 +21,7 @@ public class InputController : MonoBehaviour
 
     void FixedUpdate( )
     {
+        /*
 #if UNITY_EDITOR && UNITY_ANDROID
         if ( !m_MobileMode )
         {
@@ -39,6 +40,7 @@ public class InputController : MonoBehaviour
         m_Player.AddTorque( TiltVector * m_MovementSpeed );
 
         TiltVector = Vector3.zero;
+        */
     }
 
     void OnGUI( )
