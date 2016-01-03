@@ -22,10 +22,13 @@ public class InputController : MonoBehaviour
     void FixedUpdate( )
     {
 #if UNITY_EDITOR && UNITY_ANDROID
-        if ( Input.GetKey( KeyCode.UpArrow ) ) { TiltVector += Vector3.right; }
-        if ( Input.GetKey( KeyCode.DownArrow ) ) { TiltVector += Vector3.left; }
-        if ( Input.GetKey( KeyCode.LeftArrow) ) { TiltVector += Vector3.forward; }
-        if ( Input.GetKey( KeyCode.RightArrow) ) { TiltVector += Vector3.back; }
+        if ( !m_MobileMode )
+        {
+            if ( Input.GetKey( KeyCode.UpArrow ) ) { TiltVector += Vector3.right; }
+            if ( Input.GetKey( KeyCode.DownArrow ) ) { TiltVector += Vector3.left; }
+            if ( Input.GetKey( KeyCode.LeftArrow ) ) { TiltVector += Vector3.forward; }
+            if ( Input.GetKey( KeyCode.RightArrow ) ) { TiltVector += Vector3.back; }
+        }
 #endif
 
 #if !UNITY_EDITOR && UNITY_ANDROID
