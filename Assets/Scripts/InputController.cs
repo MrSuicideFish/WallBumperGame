@@ -29,7 +29,7 @@ public class InputController : MonoBehaviour
 #endif
 
 #if !UNITY_EDITOR && UNITY_ANDROID
-        TiltVector = Input.gyro.rotationRate;
+        TiltVector = Input.acceleration;
 #endif
 
         //Move player
@@ -48,7 +48,7 @@ public class InputController : MonoBehaviour
         style.fontSize = 32;
         style.normal.textColor = new Color( 1.0f, 1.0f, 1.0f, 1.0f );
 
-        GUI.Label( new Rect( 0, 80, 256, 64 ), "Gyro Gravity: " + Input.gyro.gravity.ToString( ), style );
+        GUI.Label( new Rect( 0, 80, 256, 64 ), "Gyro Gravity: " + Input.acceleration.ToString(), style );
 
 
 
