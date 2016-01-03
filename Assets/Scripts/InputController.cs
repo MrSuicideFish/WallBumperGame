@@ -44,6 +44,7 @@ public class InputController : MonoBehaviour
         GUI.Label( new Rect( 0, 40, 256, 32 ), "Gyro Attitude: " + Input.gyro.attitude.eulerAngles.ToString( ) );
         GUI.Label( new Rect( 0, 60, 256, 32 ), "Rotation Rate: " + Input.gyro.rotationRate.ToString( ) );
         GUI.Label( new Rect( 0, 80, 256, 32 ), "Rotation Rate (Unbiased): " + Input.gyro.rotationRateUnbiased.ToString( ) );
+        GUI.Label( new Rect( 0, 80, 256, 32 ), "Gyro Gravity: " + Input.gyro.gravity.ToString( ) );
 
         int w = Screen.width, h = Screen.height;
 
