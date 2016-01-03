@@ -40,20 +40,19 @@ public class InputController : MonoBehaviour
 
     void OnGUI( )
     {
-        GUI.Label( new Rect( 0, 20, 256, 32 ), "Gyro Enabled: " + Input.gyro.enabled );
-        GUI.Label( new Rect( 0, 40, 256, 32 ), "Gyro Attitude: " + Input.gyro.attitude.eulerAngles.ToString( ) );
-        GUI.Label( new Rect( 0, 60, 256, 32 ), "Rotation Rate: " + Input.gyro.rotationRate.ToString( ) );
-        GUI.Label( new Rect( 0, 80, 256, 32 ), "Rotation Rate (Unbiased): " + Input.gyro.rotationRateUnbiased.ToString( ) );
-        GUI.Label( new Rect( 0, 80, 256, 32 ), "Gyro Gravity: " + Input.gyro.gravity.ToString( ) );
-
-        int w = Screen.width, h = Screen.height;
-
         GUIStyle style = new GUIStyle( );
-
+        int w = Screen.width, h = Screen.height;
         Rect rect = new Rect( 0, 0, w, h * 2 / 100 );
+
         style.alignment = TextAnchor.UpperLeft;
-        style.fontSize = h * 2 / 100;
+        style.fontSize = 32;
         style.normal.textColor = new Color( 1.0f, 1.0f, 1.0f, 1.0f );
+
+        GUI.Label( new Rect( 0, 80, 256, 64 ), "Gyro Gravity: " + Input.gyro.gravity.ToString( ), style );
+
+
+
+
         float msec = deltaTime * 1000.0f;
         float fps = 1.0f / deltaTime;
         string text = string.Format( "{0:0.0} ms ({1:0.} fps)", msec, fps );
