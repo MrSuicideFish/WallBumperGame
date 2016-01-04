@@ -76,7 +76,6 @@ public class InputController : MonoBehaviour
                 if(m_MobileMode)
                 {
                     TiltVector = Input.acceleration;
-                    TiltVector = TiltVector - RestTiltVector;
 
                     if ( !m_IsJumping )
                     {
@@ -89,7 +88,6 @@ public class InputController : MonoBehaviour
 #endif
 
         //Move player
-        Debug.Log( TiltVector );
         m_Player.AddTorque( TiltVector * m_MovementSpeed );
         TiltVector = Vector3.zero;
     }
