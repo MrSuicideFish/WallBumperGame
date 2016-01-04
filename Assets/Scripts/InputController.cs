@@ -39,8 +39,6 @@ public class InputController : MonoBehaviour
     {
         TiltVector = Vector3.zero;
         PlayerEventManager.OnPlayerCollision.AddListener( OnPlayerCollision );
-
-
     }
 
     float deltaTime = 0.0f;
@@ -87,7 +85,6 @@ public class InputController : MonoBehaviour
                             Jump( );
                         }
                     }
-
                 }
 #endif
 
@@ -105,12 +102,7 @@ public class InputController : MonoBehaviour
 
     void OnPlayerSpawn( GameObject _newPlayer )
     {
-        RestTiltVector = new Vector3( )
-        {
-            x = Input.acceleration.y,
-            y = 0,
-            z = -Input.acceleration.x
-        };
+        RestTiltVector = Input.acceleration;
 
         m_Player = _newPlayer.GetComponent<Rigidbody>( );
     }
