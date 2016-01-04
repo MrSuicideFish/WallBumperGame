@@ -83,7 +83,7 @@ public class InputController : MonoBehaviour
                 {
                     TiltVector = new Vector3( )
                     {
-                        x = Input.acceleration.z,
+                        x = Input.acceleration.z > 0f ? -Input.acceleration.z : Input.acceleration,
                         y = 0,
                         z = -Input.acceleration.x
                     };
