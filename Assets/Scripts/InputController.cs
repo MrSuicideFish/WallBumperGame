@@ -40,12 +40,7 @@ public class InputController : MonoBehaviour
         TiltVector = Vector3.zero;
         PlayerEventManager.OnPlayerCollision.AddListener( OnPlayerCollision );
 
-        RestTiltVector = new Vector3( )
-        {
-            x = Input.acceleration.z,
-            y = 0,
-            z = -Input.acceleration.x
-        };
+
     }
 
     float deltaTime = 0.0f;
@@ -59,10 +54,10 @@ public class InputController : MonoBehaviour
         if ( !m_MobileMode )
                 {
                     //Up: x/-x, Right: z/-z 
-                    if ( Input.GetKey( KeyCode.UpArrow ) ) { TiltVector += Vector3.right; }
-                    if ( Input.GetKey( KeyCode.DownArrow ) ) { TiltVector += Vector3.left; }
-                    if ( Input.GetKey( KeyCode.LeftArrow ) ) { TiltVector += Vector3.forward; }
-                    if ( Input.GetKey( KeyCode.RightArrow ) ) { TiltVector += Vector3.back; }
+                    if ( Input.GetKey( KeyCode.UpArrow ) ) { TiltVector += Vector3.forward; }
+                    if ( Input.GetKey( KeyCode.DownArrow ) ) { TiltVector += Vector3.back; }
+                    if ( Input.GetKey( KeyCode.LeftArrow ) ) { TiltVector += Vector3.left; }
+                    if ( Input.GetKey( KeyCode.RightArrow ) ) { TiltVector += Vector3.right; }
                 }
 
                 if ( !m_IsJumping )
@@ -82,13 +77,7 @@ public class InputController : MonoBehaviour
 #if !UNITY_EDITOR && UNITY_ANDROID
                 if(m_MobileMode)
                 {
-                    TiltVector = new Vector3( )
-                    {
-                        x = 0.5f -  Input.acceleration.z,
-                        y = 0,
-                        z = -Input.acceleration.x
-                    };
-
+                    TiltVector = Input.acceleration;
                     TiltVector = TiltVector - RestTiltVector;
 
                     if ( !m_IsJumping )
@@ -103,6 +92,7 @@ public class InputController : MonoBehaviour
 #endif
 
         //Move player
+        Debug.Log( TiltVector );
         m_Player.AddTorque( TiltVector * m_MovementSpeed );
         TiltVector = Vector3.zero;
     }
@@ -115,6 +105,13 @@ public class InputController : MonoBehaviour
 
     void OnPlayerSpawn( GameObject _newPlayer )
     {
+        RestTiltVector = new Vector3( )
+        {
+            x = Input.acceleration.y,
+            y = 0,
+            z = -Input.acceleration.x
+        };
+
         m_Player = _newPlayer.GetComponent<Rigidbody>( );
     }
 
