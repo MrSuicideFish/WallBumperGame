@@ -41,8 +41,8 @@ public class InputController : MonoBehaviour
     {
         deltaTime += ( Time.deltaTime - deltaTime ) * 0.1f;
 
-        #if UNITY_EDITOR && UNITY_ANDROID
-                if ( !m_MobileMode )
+    #if UNITY_EDITOR_WIN
+        if ( !m_MobileMode )
                 {
                     if ( Input.GetKey( KeyCode.UpArrow ) ) { TiltVector += Vector3.right; }
                     if ( Input.GetKey( KeyCode.DownArrow ) ) { TiltVector += Vector3.left; }
@@ -57,7 +57,7 @@ public class InputController : MonoBehaviour
                         Jump( );
                     }
                 }
-#endif
+        #endif
         //(Pitch,Yaw,Roll)
         //Up: (0,0,-1)
         //Down (0,0,1)
@@ -66,7 +66,6 @@ public class InputController : MonoBehaviour
 
 #if !UNITY_EDITOR && UNITY_ANDROID
                 if(m_MobileMode){
-
         
                     TiltVector = new Vector3( )
                     {
