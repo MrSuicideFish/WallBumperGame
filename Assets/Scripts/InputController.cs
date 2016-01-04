@@ -29,6 +29,11 @@ public class InputController : MonoBehaviour
         GUI.Label( rect, text, style );
     }
 
+    void Awake( )
+    {
+        PlayerEventManager.OnPlayerSpawn.AddListener( OnPlayerSpawn );
+    }
+
     void Start( )
     {
         TiltVector = Vector3.zero;
@@ -40,12 +45,13 @@ public class InputController : MonoBehaviour
             y = 0,
             z = -Input.acceleration.x
         };
-
     }
 
     float deltaTime = 0.0f;
     void Update( )
     {
+        if ( m_Player == null ) return;
+
         deltaTime += ( Time.deltaTime - deltaTime ) * 0.1f;
 
     #if UNITY_EDITOR_WIN
@@ -104,6 +110,11 @@ public class InputController : MonoBehaviour
     {
         m_Player.AddForce( Vector3.up * m_JumpHeight );
         m_IsJumping = true;
+    }
+
+    void OnPlayerSpawn( GameObject _newPlayer )
+    {
+        m_Player = _newPlayer.GetComponent<Rigidbody>( );
     }
 
     void OnPlayerCollision( Collision col )

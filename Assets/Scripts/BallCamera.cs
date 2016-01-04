@@ -3,9 +3,19 @@ using System.Collections;
 
 public class BallCamera : MonoBehaviour
 {
-    public Transform Target;
+    Transform Target;
     public Vector3 m_TargetRotation;
     public Vector3 m_PositionOffset;
+
+    void Awake( )
+    {
+        PlayerEventManager.OnPlayerSpawn.AddListener( OnPlayerSpawn );
+    }
+
+    void OnPlayerSpawn( GameObject _newPlayer )
+    {
+        Target = _newPlayer.transform;
+    }
 
     void FixedUpdate( )
     {
