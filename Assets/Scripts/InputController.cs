@@ -40,28 +40,36 @@ public class InputController : MonoBehaviour
     {
         deltaTime += ( Time.deltaTime - deltaTime ) * 0.1f;
 
-#if UNITY_EDITOR && UNITY_ANDROID
-        if ( !m_MobileMode )
-        {
-            if ( Input.GetKey( KeyCode.UpArrow ) ) { TiltVector += Vector3.right; }
-            if ( Input.GetKey( KeyCode.DownArrow ) ) { TiltVector += Vector3.left; }
-            if ( Input.GetKey( KeyCode.LeftArrow ) ) { TiltVector += Vector3.forward; }
-            if ( Input.GetKey( KeyCode.RightArrow ) ) { TiltVector += Vector3.back; }
-        }
+        #if UNITY_EDITOR && UNITY_ANDROID
+                if ( !m_MobileMode )
+                {
+                    if ( Input.GetKey( KeyCode.UpArrow ) ) { TiltVector += Vector3.right; }
+                    if ( Input.GetKey( KeyCode.DownArrow ) ) { TiltVector += Vector3.left; }
+                    if ( Input.GetKey( KeyCode.LeftArrow ) ) { TiltVector += Vector3.forward; }
+                    if ( Input.GetKey( KeyCode.RightArrow ) ) { TiltVector += Vector3.back; }
+                }
 
-        if ( !m_IsJumping )
-        {
-            if ( Input.GetKeyDown( KeyCode.Space ) )
-            {
-                Jump( );
-            }
-        }
-#endif
+                if ( !m_IsJumping )
+                {
+                    if ( Input.GetKeyDown( KeyCode.Space ) )
+                    {
+                        Jump( );
+                    }
+                }
+        #endif
 
-#if !UNITY_EDITOR && UNITY_ANDROID
-        if(m_MobileMode)
-            TiltVector = Input.acceleration;
-#endif
+        #if !UNITY_EDITOR && UNITY_ANDROID
+                if(m_MobileMode){
+                    TiltVector = Input.acceleration;
+                    if ( !m_IsJumping )
+                    {
+                        if(Input.GetTouch(0).tapCount == 1 )
+                        {
+                            Jump( );
+                        }
+                    }
+                }
+        #endif
 
         //Move player
         m_Player.AddTorque( TiltVector * m_MovementSpeed );
