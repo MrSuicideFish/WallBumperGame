@@ -66,6 +66,7 @@ public class InputController : MonoBehaviour
                     }
                 }
 #endif
+
         //(Pitch,Yaw,Roll)
         //Up: (0,0,-1)
         //Down (0,0,1)
@@ -79,12 +80,9 @@ public class InputController : MonoBehaviour
                     TiltVector.z = TiltVector.y;
                     TiltVector.y = 0;
 
-                    if ( !m_IsJumping )
+                    if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended )
                     {
-                        if(Input.GetTouch(0).tapCount == 1 )
-                        {
-                            Jump( );
-                        }
+                        Jump( );
                     }
                 }
 #endif
