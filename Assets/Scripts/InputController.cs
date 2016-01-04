@@ -68,25 +68,12 @@ public class InputController : MonoBehaviour
                 if(m_MobileMode){
 
         
-                    if(Input.deviceOrientation == DeviceOrientation.LandscapeLeft )
+                    TiltVector = new Vector3( )
                     {
-                        TiltVector = new Vector3( )
-                        {
-                            x = Input.acceleration.y,
-                            y = Input.acceleration.z,
-                            z = Input.acceleration.x
-                        };
-                    }
-
-                    if(Input.deviceOrientation == DeviceOrientation.LandscapeRight )
-                    {
-                        TiltVector = new Vector3( )
-                        {
-                            x = Input.acceleration.z,
-                            y = Input.acceleration.x,
-                            z = Input.acceleration.y
-                        };
-                    }
+                        x = Input.acceleration.x,
+                        y = 0,
+                        z = 0
+                    };
 
                     if ( !m_IsJumping )
                     {
