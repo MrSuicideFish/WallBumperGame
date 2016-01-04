@@ -302,7 +302,7 @@ Transform:
   - {fileID: 38364495}
   - {fileID: 1231184815}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1001 &525490707
 Prefab:
   m_ObjectHideFlags: 0
@@ -312,15 +312,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 435226, guid: e842ef065c659df4c96386ad0ead65e0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.43000031
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 435226, guid: e842ef065c659df4c96386ad0ead65e0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.80999994
+      value: 2.3499999
       objectReference: {fileID: 0}
     - target: {fileID: 435226, guid: e842ef065c659df4c96386ad0ead65e0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 8.93999958
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 435226, guid: e842ef065c659df4c96386ad0ead65e0, type: 2}
       propertyPath: m_LocalRotation.x
@@ -418,6 +418,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 493311005}
   m_RootOrder: 2
+--- !u!1001 &1393428008
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400002, guid: af99ec18c7a85d64fbc2997d37bb9ed7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.12662053
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: af99ec18c7a85d64fbc2997d37bb9ed7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.26999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: af99ec18c7a85d64fbc2997d37bb9ed7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.3133192
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: af99ec18c7a85d64fbc2997d37bb9ed7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: af99ec18c7a85d64fbc2997d37bb9ed7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: af99ec18c7a85d64fbc2997d37bb9ed7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: af99ec18c7a85d64fbc2997d37bb9ed7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: af99ec18c7a85d64fbc2997d37bb9ed7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: af99ec18c7a85d64fbc2997d37bb9ed7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e9b04cb30a320ba41a4aa08228381888, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: af99ec18c7a85d64fbc2997d37bb9ed7, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1 &1837756785
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +490,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: .29411763, g: .29411763, b: .29411763, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -477,7 +523,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &1967312610
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +614,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1967312616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,7 +666,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1967312610}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0923359e9e352a4b9b11c7b7161ad67, type: 3}
   m_Name: 
@@ -640,7 +686,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1967312610}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e50e925fb93c78246bf995d9dc3a2330, type: 3}
   m_Name: 

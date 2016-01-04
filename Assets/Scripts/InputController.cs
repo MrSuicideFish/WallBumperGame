@@ -85,11 +85,10 @@ public class InputController : MonoBehaviour
                     {
                         x = Input.acceleration.z,
                         y = 0,
-                        z = Input.acceleration.x
+                        z = -Input.acceleration.x
                     };
 
                     TiltVector = TiltVector - RestTiltVector;
-                    TiltVector = -TiltVector;
 
                     if ( !m_IsJumping )
                     {
