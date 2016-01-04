@@ -77,7 +77,7 @@ public class InputController : MonoBehaviour
                 {
                     TiltVector = (Input.acceleration - RestTiltVector);
                     TiltVector.z = TiltVector.y;
-                    TiltVector.z = -TiltVector.z;
+                    TiltVector.y = 0;
 
                     if ( !m_IsJumping )
                     {
@@ -102,7 +102,7 @@ public class InputController : MonoBehaviour
 
     void OnPlayerSpawn( GameObject _newPlayer )
     {
-        RestTiltVector = Input.acceleration;
+        RestTiltVector = new Vector3( Input.acceleration.x, 0, Input.acceleration.z );
 
         m_Player = _newPlayer.GetComponent<Rigidbody>( );
     }
