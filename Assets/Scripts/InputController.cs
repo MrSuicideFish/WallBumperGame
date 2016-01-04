@@ -41,7 +41,7 @@ public class InputController : MonoBehaviour
 
         RestTiltVector = new Vector3( )
         {
-            x = -Input.acceleration.z,
+            x = Input.acceleration.z,
             y = 0,
             z = -Input.acceleration.x
         };
@@ -88,8 +88,6 @@ public class InputController : MonoBehaviour
                         y = 0,
                         z = -Input.acceleration.x
                     };
-
-                    TiltVector = TiltVector - RestTiltVector;
 
                     if ( !m_IsJumping )
                     {
