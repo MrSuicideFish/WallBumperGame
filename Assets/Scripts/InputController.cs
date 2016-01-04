@@ -70,7 +70,7 @@ public class InputController : MonoBehaviour
                     {
                         Jump( );
                     }
-        }
+                }
 #endif
         //(Pitch,Yaw,Roll)
         //Up: (0,0,-1)
@@ -83,7 +83,7 @@ public class InputController : MonoBehaviour
                 {
                     TiltVector = new Vector3( )
                     {
-                        x = Input.acceleration.z > 0f ? -Input.acceleration.z : Input.acceleration.z,
+                        x = -Input.acceleration.y,
                         y = 0,
                         z = -Input.acceleration.x
                     };
