@@ -22,7 +22,7 @@ public class InputController : MonoBehaviour
         style.normal.textColor = new Color( 1.0f, 1.0f, 1.0f, 1.0f );
 
         GUI.Label( new Rect( 0, 80, 256, 64 ), "Gyro Gravity: " + Input.acceleration.ToString( ), style );
-        GUI.Label( new Rect( 0, 80, 256, 64 ), "Gyro Gravity (Calibrated): " + ( Input.acceleration - RestTiltVector ).ToString( ), style );
+        GUI.Label( new Rect( 0, 120, 256, 64 ), "Gyro Gravity (Calibrated): " + ( Input.acceleration - RestTiltVector ).ToString( ), style );
 
         float msec = deltaTime * 1000.0f;
         float fps = 1.0f / deltaTime;
