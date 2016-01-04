@@ -76,7 +76,7 @@ public class InputController : MonoBehaviour
 #if !UNITY_EDITOR && UNITY_ANDROID
                 if(m_MobileMode)
                 {
-                    TiltVector = new Vector3( Input.acceleration.x, Input.acceleration.y, (-1) + Input.acceleration.z );
+                    TiltVector = (Input.acceleration - RestTiltVector);
 
                     if ( !m_IsJumping )
                     {
