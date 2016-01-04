@@ -7,7 +7,7 @@ public class InputController : MonoBehaviour
     public float m_MovementSpeed = 1;
     public float m_JumpHeight = 20.0f;
     public bool m_MobileMode = false;
-    Vector3 TiltVector;
+    Vector3 TiltVector, RestTiltVector;
 
     bool m_IsJumping = false;
 
@@ -33,6 +33,7 @@ public class InputController : MonoBehaviour
     {
         TiltVector = Vector3.zero;
         PlayerEventManager.OnPlayerCollision.AddListener( OnPlayerCollision );
+        RestTiltVector = Input.acceleration;
     }
 
     float deltaTime = 0.0f;
@@ -56,11 +57,16 @@ public class InputController : MonoBehaviour
                         Jump( );
                     }
                 }
-        #endif
+#endif
+        //(Pitch,Yaw,Roll)
+        //Up: (0,0,-1)
+        //Down (0,0,1)
 
-        #if !UNITY_EDITOR && UNITY_ANDROID
+        //roll: (1/-1,0,0)
+
+#if !UNITY_EDITOR && UNITY_ANDROID
                 if(m_MobileMode){
-                    TiltVector = Input.acceleration;
+                    TiltVector = Input.acceleration - RestTiltVector;
                     if ( !m_IsJumping )
                     {
                         if(Input.GetTouch(0).tapCount == 1 )
@@ -69,7 +75,7 @@ public class InputController : MonoBehaviour
                         }
                     }
                 }
-        #endif
+#endif
 
         //Move player
         m_Player.AddTorque( TiltVector * m_MovementSpeed );
