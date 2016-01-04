@@ -66,7 +66,28 @@ public class InputController : MonoBehaviour
 
 #if !UNITY_EDITOR && UNITY_ANDROID
                 if(m_MobileMode){
-                    TiltVector = Input.acceleration - RestTiltVector;
+
+        
+                    if(Input.deviceOrientation == DeviceOrientation.LandscapeLeft )
+                    {
+                        TiltVector = new Vector3( )
+                        {
+                            x = Input.acceleration.y,
+                            y = Input.acceleration.z,
+                            z = Input.acceleration.x
+                        };
+                    }
+
+                    if(Input.deviceOrientation == DeviceOrientation.LandscapeRight )
+                    {
+                        TiltVector = new Vector3( )
+                        {
+                            x = Input.acceleration.z,
+                            y = Input.acceleration.x,
+                            z = Input.acceleration.y
+                        };
+                    }
+
                     if ( !m_IsJumping )
                     {
                         if(Input.GetTouch(0).tapCount == 1 )
