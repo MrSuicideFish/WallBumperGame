@@ -273,6 +273,42 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a990e7fc01883a74b88b5e74644e77d3, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &241238507 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 108462, guid: 014ac857847c72145940fd62e5165cf8, type: 2}
+  m_PrefabInternal: {fileID: 1418806253}
+--- !u!108 &241238513
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 241238507}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_Type: 2
+  m_Color: {r: 1, g: .806896567, b: 0, a: 1}
+  m_Intensity: 8
+  m_Range: 1.28999996
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_NormalBias: .400000006
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_BounceIntensity: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 1, y: 1}
 --- !u!1 &493311004
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +454,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 493311005}
   m_RootOrder: 2
+--- !u!1001 &1418806253
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 437614, guid: 014ac857847c72145940fd62e5165cf8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.56599998
+      objectReference: {fileID: 0}
+    - target: {fileID: 437614, guid: 014ac857847c72145940fd62e5165cf8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 437614, guid: 014ac857847c72145940fd62e5165cf8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 437614, guid: 014ac857847c72145940fd62e5165cf8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437614, guid: 014ac857847c72145940fd62e5165cf8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437614, guid: 014ac857847c72145940fd62e5165cf8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437614, guid: 014ac857847c72145940fd62e5165cf8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 437614, guid: 014ac857847c72145940fd62e5165cf8, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 014ac857847c72145940fd62e5165cf8, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1645625257
 Prefab:
   m_ObjectHideFlags: 0
@@ -427,15 +505,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 448826, guid: d9204b4bb3362874780165830ff8dbc6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.78999996
+      value: 6.63000011
       objectReference: {fileID: 0}
     - target: {fileID: 448826, guid: d9204b4bb3362874780165830ff8dbc6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.26999998
+      value: 2.27999997
       objectReference: {fileID: 0}
     - target: {fileID: 448826, guid: d9204b4bb3362874780165830ff8dbc6, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 5.38000011
+      value: 3.0999999
       objectReference: {fileID: 0}
     - target: {fileID: 448826, guid: d9204b4bb3362874780165830ff8dbc6, type: 2}
       propertyPath: m_LocalRotation.x
@@ -455,6 +533,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 448826, guid: d9204b4bb3362874780165830ff8dbc6, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434218, guid: d9204b4bb3362874780165830ff8dbc6, type: 2}
+      propertyPath: ZoneSize
+      value: 8.01000023
+      objectReference: {fileID: 0}
+    - target: {fileID: 11434218, guid: d9204b4bb3362874780165830ff8dbc6, type: 2}
+      propertyPath: EndZoneType
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -637,7 +723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Player: {fileID: 0}
   m_MovementSpeed: 100
-  m_MaxJumpHeight: 1
+  m_MaxJumpHeight: 600
   m_MobileMode: 0
 --- !u!114 &1967312618
 MonoBehaviour:

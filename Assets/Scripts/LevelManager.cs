@@ -5,7 +5,6 @@ public class LevelManager : MonoBehaviour
 {
     public static GameObject INST_PLAYER;
     public GameObject PlayerMeshPrefab;
-
     void Start( )
     {
         //Look for player start position
