@@ -5,7 +5,7 @@ public class InputController : MonoBehaviour
 {
     public Rigidbody m_Player;
     public float m_MovementSpeed = 1;
-    public float m_JumpHeight = 20.0f;
+    public float m_MaxJumpHeight = 1.0f;
     public bool m_MobileMode = false;
     Vector3 TiltVector, RestTiltVector;
 
@@ -50,28 +50,22 @@ public class InputController : MonoBehaviour
 
     #if UNITY_EDITOR_WIN
         if ( !m_MobileMode )
-                {
-                    //Up: x/-x, Right: z/-z 
-                    if ( Input.GetKey( KeyCode.UpArrow ) ) { TiltVector += Vector3.forward; }
-                    if ( Input.GetKey( KeyCode.DownArrow ) ) { TiltVector += Vector3.back; }
-                    if ( Input.GetKey( KeyCode.LeftArrow ) ) { TiltVector += Vector3.left; }
-                    if ( Input.GetKey( KeyCode.RightArrow ) ) { TiltVector += Vector3.right; }
-                }
+        {
+            //Up: x/-x, Right: z/-z 
+            if ( Input.GetKey( KeyCode.W ) ) { TiltVector += Vector3.forward; }
+            if ( Input.GetKey( KeyCode.S) ) { TiltVector += Vector3.back; }
+            if ( Input.GetKey( KeyCode.A) ) { TiltVector += Vector3.left; }
+            if ( Input.GetKey( KeyCode.D) ) { TiltVector += Vector3.right; }
+        }
 
-                if ( !m_IsJumping )
-                {
-                    if ( Input.GetKeyDown( KeyCode.Space ) )
-                    {
-                        Jump( );
-                    }
-                }
+        if ( !m_IsJumping )
+        {
+            if ( Input.GetKeyDown( KeyCode.Space ) )
+            {
+                Jump( );
+            }
+        }
 #endif
-
-        //(Pitch,Yaw,Roll)
-        //Up: (0,0,-1)
-        //Down (0,0,1)
-
-        //roll: (1/-1,0,0)
 
 #if !UNITY_EDITOR && UNITY_ANDROID
                 if(m_MobileMode)
@@ -87,14 +81,13 @@ public class InputController : MonoBehaviour
                 }
 #endif
 
-        //Move player
         m_Player.AddTorque( TiltVector * m_MovementSpeed );
         TiltVector = Vector3.zero;
     }
 
     void Jump( )
     {
-        m_Player.AddForce( Vector3.up * m_JumpHeight );
+        m_Player.AddForce( Vector3.up * m_MaxJumpHeight );
         m_IsJumping = true;
     }
 
