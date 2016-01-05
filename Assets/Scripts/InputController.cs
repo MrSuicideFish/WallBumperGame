@@ -7,7 +7,8 @@ public class InputController : MonoBehaviour
     public float m_MovementSpeed = 1;
     public float m_MaxJumpHeight = 1.0f;
     public bool m_MobileMode = false;
-    Vector3 TiltVector, RestTiltVector;
+    public Vector3 TiltVector { get; private set; }
+    Vector3 RestTiltVector;
 
     bool m_IsJumping = false;
 
@@ -42,6 +43,7 @@ public class InputController : MonoBehaviour
     }
 
     float deltaTime = 0.0f;
+    public Vector3 m_LastTiltVector;
     void Update( )
     {
         if ( m_Player == null ) return;
@@ -82,6 +84,7 @@ public class InputController : MonoBehaviour
 #endif
 
         m_Player.AddTorque( TiltVector * m_MovementSpeed );
+        m_LastTiltVector = TiltVector;
         TiltVector = Vector3.zero;
     }
 
